@@ -3,8 +3,8 @@
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 
-const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, {
+const generateToken = (email) => {
+  return jwt.sign({ email }, process.env.JWT_SECRET, {
     expiresIn: "30d",
   });
 };
@@ -19,7 +19,7 @@ export const login = async (req, res) => {
       res.json({
         _id: user._id,
         email: user.email,
-        token: generateToken(user._id),
+        token: generateToken(user.email),
       });
     } else {
       res.status(401).json({ message: "Invalid credentials" });
