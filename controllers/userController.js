@@ -53,3 +53,21 @@ export const addCampaign = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+export const addCity = async (req, res) => {
+  const { campaign, clientId } = req.body;
+  try {
+    const updatedUser = await User.findOneAndUpdate(
+      { clientId: clientId },
+      { $put: { campaigns: campaign } },
+      { new: true } // This returns the updated document
+    );
+    if (!updatedUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.status(200).json(updatedUser);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
