@@ -59,7 +59,7 @@ export const addCity = async (req, res) => {
   try {
     const updatedUser = await User.findOneAndUpdate(
       { clientId: clientId },
-      { $push: { campaigns: campaign } },
+      { $set: { campaigns: campaign } },
       { new: true } // This returns the updated document
     );
     if (!updatedUser) {
