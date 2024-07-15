@@ -59,7 +59,7 @@ export const addCity = async (req, res) => {
   try {
     const updatedUser = await User.findOneAndUpdate(
       { clientId: clientId },
-      { $set: { campaigns: campaign } },
+      { $push: { campaigns: campaign } },
       { new: true } // This returns the updated document
     );
     if (!updatedUser) {
@@ -71,3 +71,23 @@ export const addCity = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+
+// export const addIp = async (req, res) => {
+//     const { ipAddress, clientId } = req.body;
+//     try {
+//       const updatedUser = await User.findOneAndUpdate(
+//         { clientId: clientId },
+//         { $set: { ipAddress: ipAddress } },
+//         { new: true } // This returns the updated document
+//       );
+//       if (!updatedUser) {
+//         return res.status(404).json({ message: "User not found" });
+//       }
+  
+//       res.status(200).json(updatedUser);
+//     } catch (err) {
+//       res.status(500).json({ message: err.message });
+//     }
+//   };
+  
