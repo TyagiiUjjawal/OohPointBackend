@@ -58,9 +58,17 @@ export const addCity = async (req, res) => {
   const { campaign, clientId } = req.body;
   try {
     const updatedUser = await User.findOneAndUpdate(
-      { clientId: clientId },
-      { $set: { ...campaign } },
-      { new: true } // This returns the updated document
+        { 
+            clientId: clientId,
+            "campaigns.campaignId": campaign.campaignId  // Match based on campaign _id
+          },
+          { 
+            $set: { 
+              "campaigns.$": campaign  // Update the entire matched campaign object
+            } 
+          },
+          { new: true } // Return the updated document
+        );
     );
     if (!updatedUser) {
       return res.status(404).json({ message: "User not found" });
