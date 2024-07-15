@@ -58,7 +58,7 @@ export const addCity = async (req, res) => {
   const { campaign, clientId } = req.body;
   try {
     const updatedUser = await User.findOneAndUpdate(
-      { clientId: clientId, "campaigns.campaignId": campaign.campaignId },
+      { clientId: clientId },
       { $set: { ...campaign } },
       { new: true } // This returns the updated document
     );
