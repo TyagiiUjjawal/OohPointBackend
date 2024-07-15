@@ -6,6 +6,7 @@ import bodyParser from 'body-parser';
 import connectDB from './config/db.js';
 import authRoutes from './routes/auth.js';
 import userRoutes from './routes/users.js';
+import imageRoutes from './routes/image.js';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -22,6 +23,7 @@ app.use('/api/client', userRoutes);
 app.get("/", (req, res) => {
     res.send("Hello world")
 })
+app.use('/api', imageRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
