@@ -58,8 +58,8 @@ export const addCity = async (req, res) => {
   const { campaign, clientId } = req.body;
   try {
     const updatedUser = await User.findOneAndUpdate(
-      { clientId: clientId },
-      { $set: { campaigns: campaign } },
+      { clientId: clientId, "campaigns.campaignId": campaign.campaignId },
+      { $set: { ...campaign } },
       { new: true } // This returns the updated document
     );
     if (!updatedUser) {
@@ -72,7 +72,6 @@ export const addCity = async (req, res) => {
   }
 };
 
-
 // export const addIp = async (req, res) => {
 //     const { ipAddress, clientId } = req.body;
 //     try {
@@ -84,10 +83,9 @@ export const addCity = async (req, res) => {
 //       if (!updatedUser) {
 //         return res.status(404).json({ message: "User not found" });
 //       }
-  
+
 //       res.status(200).json(updatedUser);
 //     } catch (err) {
 //       res.status(500).json({ message: err.message });
 //     }
 //   };
-  
