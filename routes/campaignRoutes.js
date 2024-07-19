@@ -68,9 +68,9 @@ router.post("/", async (req, res) => {
 });
 
 // Fetch campaigns for a user
-router.get("/:clientId", async (req, res) => {
+router.get("/:campaignId", async (req, res) => {
   try {
-    const campaigns = await Campaign.find({ clientId: req.params.clientId });
+    const campaigns = await Campaign.findOne({ campaignId: req.params.campaignId });
     res.status(200).json(campaigns);
   } catch (error) {
     res.status(500).json({ message: error.message });
