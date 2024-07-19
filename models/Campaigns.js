@@ -92,7 +92,7 @@ const campaignSchema = new mongoose.Schema(
     ],
     ipAddress: [
       {
-        type: String,
+        type: Object,
         required: true,
       },
     ],
