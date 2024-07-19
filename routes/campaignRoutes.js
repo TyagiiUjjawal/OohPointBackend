@@ -1,7 +1,7 @@
 // backend/routes/campaignRoutes.js
 
 import express from "express";
-import Campaign from "../models/Campaign.js";
+import Campaign from "../models/Campaigns.js";
 import User from "../models/User.js";
 
 const router = express.Router();
