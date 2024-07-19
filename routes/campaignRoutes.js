@@ -113,8 +113,8 @@ router.put("/:campaignId", async (req, res) => {
   } = req.body;
 
   try {
-    const updatedCampaign = await Campaign.findByIdAndUpdate(
-      req.params.campaignId,
+    const updatedCampaign = await Campaign.findOneAndUpdate(
+      { campaignId: req.params.campaignId },
       {
         campaignName,
         moq,
