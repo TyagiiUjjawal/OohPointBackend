@@ -26,10 +26,6 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  campaigns: {
-    type: Array,
-    required: true,
-  }
 });
 
 userSchema.pre("save", async function (next) {
