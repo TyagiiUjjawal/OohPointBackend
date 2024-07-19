@@ -86,4 +86,70 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.put("/:campaignId", async (req, res) => {
+  const {
+    clientId,
+    campaignId,
+    campaignLink,
+    specialInstructions,
+    campaignName,
+    moq,
+    startDate,
+    endDate,
+    links,
+    targetAudience,
+    budget,
+    objective,
+    geographic,
+    channels,
+    imageUrl,
+    tags,
+    freq,
+    redirectLink,
+    locationIp,
+    ipAddress,
+    isActive,
+    cities,
+  } = req.body;
+
+  try {
+    const updatedCampaign = await Campaign.findByIdAndUpdate(
+      req.params.campaignId,
+      {
+        campaignName,
+        moq,
+        startDate,
+        endDate,
+        links,
+        clientId,
+        campaignId,
+        campaignLink,
+        specialInstructions,
+        targetAudience,
+        budget,
+        objective,
+        geographic,
+        channels,
+        imageUrl,
+        tags,
+        freq,
+        redirectLink,
+        locationIp,
+        ipAddress,
+        isActive,
+        cities,
+      },
+      { new: true } // This option returns the modified document rather than the original.
+    );
+
+    if (!updatedCampaign) {
+      return res.status(404).json({ message: "Campaign not found" });
+    }
+
+    res.status(200).json(updatedCampaign);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 export default router;
