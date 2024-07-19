@@ -77,4 +77,13 @@ router.get("/:clientId", async (req, res) => {
   }
 });
 
+router.get("/", async (req, res) => {
+  try {
+    const campaigns = await Campaign.find({});
+    res.status(200).json(campaigns);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 export default router;
