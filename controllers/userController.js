@@ -9,7 +9,6 @@ export const createUser = async (req, res) => {
     return uuidv4().replace(/-/g, "").substring(0, 6);
   };
   const clientId = generateUniqueId();
-  const campaigns = [];
 
   try {
     const user = new User({
@@ -18,7 +17,6 @@ export const createUser = async (req, res) => {
       name,
       subscription,
       clientId,
-      campaigns,
     });
     await user.save();
     res.status(201).json(user);
