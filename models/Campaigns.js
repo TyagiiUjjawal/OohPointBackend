@@ -40,7 +40,7 @@ const campaignSchema = new mongoose.Schema(
     },
     specialInstructions: {
       type: String,
-      required: true,
+      required: false,
     },
     targetAudience: [
       {
