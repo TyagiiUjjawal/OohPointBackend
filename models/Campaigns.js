@@ -107,6 +107,12 @@ const campaignSchema = new mongoose.Schema(
       type: Object,
       required: true,
     },
+    location: [
+      {
+        type: Object,
+        required: false,
+      },
+    ],
   },
   { timestamps: true }
 );
