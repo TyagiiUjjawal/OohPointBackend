@@ -28,10 +28,12 @@ const campaignSchema = new mongoose.Schema(
       type: Date,
       required: true,
     },
-    links: {
-      type: Object,
-      required: true,
-    },
+    links: [
+      {
+        type: Object,
+        required: true,
+      },
+    ],
     campaignId: {
       type: String,
       required: true,

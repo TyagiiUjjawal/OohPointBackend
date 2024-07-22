@@ -16,12 +16,12 @@ const upload = multer({ storage });
 
 router.post("/upload", upload.single("image"), async (req, res) => {
   try {
-    const { name } = req.body;
+    const { id } = req.body;
     const { buffer, mimetype } = req.file;
 
     const newImage = new Image({
-      name,
-      imageUrl: `/api/image/${name}`,
+      id,
+      imageUrl: `/api/image/${id}`,
       image: {
         data: buffer,
         contentType: mimetype,
@@ -41,10 +41,10 @@ router.post("/upload", upload.single("image"), async (req, res) => {
 });
 
 // Route to serve images
-router.get("/image/:name", async (req, res) => {
+router.get("/image/:id", async (req, res) => {
   try {
-    const { name } = req.params;
-    const image = await Image.findOne({ name });
+    const { id } = req.params;
+    const image = await Image.findOne({ id });
 
     if (!image) {
       return res.status(404).json({ message: "Image not found" });
