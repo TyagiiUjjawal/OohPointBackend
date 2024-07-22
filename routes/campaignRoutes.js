@@ -2,7 +2,6 @@
 
 import express from "express";
 import Campaign from "../models/Campaigns.js";
-import User from "../models/User.js";
 
 const router = express.Router();
 
@@ -15,7 +14,6 @@ router.post("/", async (req, res) => {
     specialInstructions,
     campaignName,
     moq,
-    target,
     startDate,
     endDate,
     links,
@@ -44,7 +42,6 @@ router.post("/", async (req, res) => {
       clientId,
       campaignId,
       campaignLink,
-      target,
       specialInstructions,
       targetAudience,
       budget,

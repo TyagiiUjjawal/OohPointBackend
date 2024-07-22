@@ -16,10 +16,6 @@ const campaignSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    target: {
-      type: String,
-      required: true,
-    },
     startDate: {
       type: Date,
       required: true,
