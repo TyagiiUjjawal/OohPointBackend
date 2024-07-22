@@ -124,6 +124,7 @@ router.put("/:campaignId", async (req, res) => {
   } = req.body;
 
   try {
+    console.log(location[0].longitude + "location")
     const updatedCampaign = await Campaign.findOneAndUpdate(
       { campaignId: req.params.campaignId },
       {
