@@ -164,4 +164,20 @@ router.put("/:campaignId", async (req, res) => {
   }
 });
 
+router.delete("/:campaignId", async (req, res) => {
+  try {
+    const deletedCampaign = await Campaign.findOneAndDelete({
+      campaignId: req.params.campaignId,
+    });
+
+    if (!deletedCampaign) {
+      return res.status(404).json({ message: "Campaign not found" });
+    }
+
+    res.status(200).json({ message: "Campaign deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 export default router;
