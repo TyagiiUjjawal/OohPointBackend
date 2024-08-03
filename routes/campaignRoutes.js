@@ -56,6 +56,7 @@ router.post("/", async (req, res) => {
       ipAddress,
       isActive,
       cities,
+      redirects: 0,
     });
 
     const createdCampaign = await campaign.save();
@@ -105,6 +106,7 @@ router.put("/:campaignId", async (req, res) => {
     campaignName,
     moq,
     startDate,
+    redirects,
     location,
     endDate,
     links,
@@ -138,6 +140,7 @@ router.put("/:campaignId", async (req, res) => {
         campaignLink,
         specialInstructions,
         targetAudience,
+        redirects,
         budget,
         objective,
         geographic,
