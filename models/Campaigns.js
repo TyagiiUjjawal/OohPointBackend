@@ -113,6 +113,10 @@ const campaignSchema = new mongoose.Schema(
         required: false,
       },
     ],
+    redirects: {
+      type: Number,
+      required: false,
+    },
   },
   { timestamps: true }
 );
