@@ -30,6 +30,7 @@ router.post("/", async (req, res) => {
     ipAddress,
     isActive,
     cities,
+    video,
   } = req.body;
 
   try {
@@ -57,6 +58,7 @@ router.post("/", async (req, res) => {
       isActive,
       cities,
       redirects: 0,
+      video,
     });
 
     const createdCampaign = await campaign.save();

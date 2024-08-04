@@ -7,6 +7,7 @@ import connectDB from "./config/db.js";
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
 import imageRoutes from "./routes/image.js";
+import videoRoutes from "./routes/video.js";
 import campaignRoutes from "./routes/campaignRoutes.js";
 import dotenv from "dotenv";
 
@@ -26,6 +27,7 @@ app.get("/", (req, res) => {
   res.send("Hello world");
 });
 app.use("/api", imageRoutes);
+app.use("/api", videoRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

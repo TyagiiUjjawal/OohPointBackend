@@ -1,4 +1,3 @@
-// routes/image.js
 
 import express from "express";
 import multer from "multer";
@@ -12,7 +11,10 @@ const __dirname = path.dirname(__filename);
 
 // Set up multer for file storage
 const storage = multer.memoryStorage();
+console.log("storage: " + storage)
 const upload = multer({ storage });
+console.log(upload)
+
 
 router.post("/video/upload", upload.single("video"), async (req, res) => {
   try {
