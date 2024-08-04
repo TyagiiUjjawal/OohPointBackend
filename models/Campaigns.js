@@ -117,6 +117,10 @@ const campaignSchema = new mongoose.Schema(
       type: Number,
       required: false,
     },
+    video: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );
