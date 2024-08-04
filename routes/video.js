@@ -14,7 +14,7 @@ const __dirname = path.dirname(__filename);
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
-router.post("/upload", upload.single("image"), async (req, res) => {
+router.post("/video/upload", upload.single("video"), async (req, res) => {
   try {
     const { id } = req.body;
     const { buffer, mimetype } = req.file;
@@ -32,7 +32,7 @@ router.post("/upload", upload.single("image"), async (req, res) => {
 
     res.status(201).json({
       message: "Video uploaded successfully",
-      imageUrl: newVideo.imageUrl,
+      videoUrl: newVideo.videoUrl,
     });
   } catch (error) {
     console.error("Upload error:", error);
