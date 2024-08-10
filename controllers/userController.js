@@ -61,3 +61,19 @@ export const updatePassword = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+
+export const deleteUser = async (req, res) => {
+  const { clientId } = req.params;
+
+  try {
+    const user = await User.findOneAndDelete({ clientId });
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.status(200).json({ message: "User deleted successfully" });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
