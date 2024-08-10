@@ -24,7 +24,7 @@ app.use("/api/login", authRoutes);
 app.use("/api/client", userRoutes);
 app.use("/api/campaigns", campaignRoutes);
 app.get("/", (req, res) => {
-  res.send("Hello world");
+  res.send("Helloo");
 });
 app.use("/api", imageRoutes);
 app.use("/api", videoRoutes);
