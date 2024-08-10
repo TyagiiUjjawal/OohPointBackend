@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import bcrypt from "bcryptjs";
 
 export const createUser = async (req, res) => {
-  const { email, name, password, brandName, businessName, subscription } =
+  const { email, name, password, brandName, businessName, subscription, brandLogo } =
     req.body;
   const generateUniqueId = () => {
     return uuidv4().replace(/-/g, "").substring(0, 6);
