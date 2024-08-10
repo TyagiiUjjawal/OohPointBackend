@@ -21,6 +21,7 @@ export const createUser = async (req, res) => {
       brandName,
       businessName,
       clientId,
+      brandLogo,
     });
     await user.save();
     res.status(201).json(user);

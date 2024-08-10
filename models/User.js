@@ -35,6 +35,10 @@ const userSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    brandLogo: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );
