@@ -59,6 +59,7 @@ router.post("/", async (req, res) => {
       cities,
       redirects: 0,
       video,
+      uuid: [],
     });
 
     const createdCampaign = await campaign.save();
@@ -126,6 +127,7 @@ router.put("/:campaignId", async (req, res) => {
     isActive,
     cities,
     video,
+    uuid,
   } = req.body;
 
   try {
@@ -157,6 +159,7 @@ router.put("/:campaignId", async (req, res) => {
         isActive,
         cities,
         video,
+        uuid,
       },
       { new: true } // This option returns the modified document rather than the original.
     );

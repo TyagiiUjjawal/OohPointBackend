@@ -121,6 +121,14 @@ const campaignSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    uuid: [
+      [
+        {
+          type: Number,
+          required: false,
+        },
+      ],
+    ],
   },
   { timestamps: true }
 );
