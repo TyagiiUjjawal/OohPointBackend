@@ -125,6 +125,7 @@ router.put("/:campaignId", async (req, res) => {
     ipAddress,
     isActive,
     cities,
+    video,
   } = req.body;
 
   try {
@@ -155,6 +156,7 @@ router.put("/:campaignId", async (req, res) => {
         ipAddress,
         isActive,
         cities,
+        video,
       },
       { new: true } // This option returns the modified document rather than the original.
     );
