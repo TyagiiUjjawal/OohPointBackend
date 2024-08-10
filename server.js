@@ -17,7 +17,11 @@ const app = express();
 
 connectDB();
 
-app.use(cors());
+app.use(cors({
+    origin: 'https://ooh-point-admin.vercel.app', // replace this with your frontend's URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(bodyParser.json());
 
 app.use("/api/login", authRoutes);
