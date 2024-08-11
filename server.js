@@ -22,8 +22,9 @@ app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
-app.use(bodyParser.json());
 
+app.use(bodyParser.json({ limit: '50mb' }));  // Increase if necessary
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use("/api/login", authRoutes);
 app.use("/api/client", userRoutes);
 app.use("/api/campaigns", campaignRoutes);
