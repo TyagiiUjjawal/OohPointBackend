@@ -17,7 +17,11 @@ const app = express();
 
 connectDB();
 
-app.use(cors());
+app.use(cors({
+    origin: '*',  // This allows requests from any origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(bodyParser.json());
 
 app.use("/api/login", authRoutes);
